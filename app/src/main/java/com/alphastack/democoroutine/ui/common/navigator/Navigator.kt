@@ -1,5 +1,6 @@
 package com.alphastack.democoroutine.ui.common.navigator
 
+import com.alphastack.democoroutine.ui.asyncAwait.AsyncAwaitFragment
 import com.alphastack.democoroutine.ui.common.activity.BaseActivity
 import com.ncapdevi.fragnav.FragNavController
 
@@ -14,6 +15,10 @@ class Navigator(
         } else {
             fragNavController.popFragment()
         }
+    }
+
+    fun navigateToAsyncAwaitScreen() {
+        fragNavController.pushFragment(AsyncAwaitFragment())
     }
 
 }

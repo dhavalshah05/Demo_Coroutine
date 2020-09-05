@@ -6,13 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.alphastack.democoroutine.di.presentation.PresentationComponent
 import com.alphastack.democoroutine.ui.common.fragment.BaseFragment
+import com.alphastack.democoroutine.ui.common.navigator.Navigator
 import com.alphastack.democoroutine.ui.common.uiView.UIViewFactory
 import javax.inject.Inject
 
-class HomeFragment : BaseFragment() {
-
-    @Inject
-    lateinit var uiViewFactory: UIViewFactory
+class HomeFragment : BaseFragment(), HomeUIView.Listener {
 
     private lateinit var uiView: HomeUIView
 
@@ -23,6 +21,20 @@ class HomeFragment : BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         uiView = uiViewFactory.getHomeUIView(container)
         return uiView.getRootView()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        uiView.registerListener(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        uiView.unregisterListener(this)
+    }
+
+    override fun onAsyncAwaitClicked() {
+        navigator.navigateToAsyncAwaitScreen()
     }
 
 }

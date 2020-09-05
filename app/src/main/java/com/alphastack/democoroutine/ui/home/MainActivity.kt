@@ -10,9 +10,6 @@ import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
 
-    @Inject
-    lateinit var navigator: Navigator
-
     override fun injectActivity(presentationComponent: PresentationComponent) {
         presentationComponent.inject(this)
     }
