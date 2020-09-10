@@ -6,6 +6,7 @@ abstract class HomeUIView: BaseObservableUIView<HomeUIView.Listener>() {
 
     interface Listener {
         fun onAsyncAwaitClicked()
+        fun onCountdownTimerClicked()
     }
 
 }

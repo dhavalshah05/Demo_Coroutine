@@ -2,4 +2,7 @@
     <string name="app_name">Demo_Coroutine</string>
 
     <string name="button_async_await">Async Await</string>
+    <string name="button_start_timer">Start Timer</string>
+    <string name="button_stop_timer">Stop Timer</string>
+    <string name="button_count_down_timer">Countdown Timer</string>
 </resources>

@@ -24,6 +24,9 @@ class HomeUIViewImpl(
         getRootView().buttonAsyncAwait.setOnClickListener {
             getListeners().forEach { it.onAsyncAwaitClicked() }
         }
+        getRootView().buttonCountDownTimer.setOnClickListener {
+            getListeners().forEach { it.onCountdownTimerClicked() }
+        }
     }
 
 }

@@ -2,6 +2,7 @@ package com.alphastack.democoroutine.ui.common.navigator
 
 import com.alphastack.democoroutine.ui.asyncAwait.AsyncAwaitFragment
 import com.alphastack.democoroutine.ui.common.activity.BaseActivity
+import com.alphastack.democoroutine.ui.countdownTimer.CountDownTimerFragment
 import com.ncapdevi.fragnav.FragNavController
 
 class Navigator(
@@ -19,6 +20,10 @@ class Navigator(
 
     fun navigateToAsyncAwaitScreen() {
         fragNavController.pushFragment(AsyncAwaitFragment())
+    }
+
+    fun navigateToCountdownTimerScreen() {
+        fragNavController.pushFragment(CountDownTimerFragment())
     }
 
 }

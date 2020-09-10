@@ -37,4 +37,8 @@ class HomeFragment : BaseFragment(), HomeUIView.Listener {
         navigator.navigateToAsyncAwaitScreen()
     }
 
+    override fun onCountdownTimerClicked() {
+        navigator.navigateToCountdownTimerScreen()
+    }
+
 }

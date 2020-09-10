@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.alphastack.democoroutine.ui.asyncAwait.AsyncAwaitUIView
 import com.alphastack.democoroutine.ui.asyncAwait.AsyncAwaitUIViewImpl
+import com.alphastack.democoroutine.ui.countdownTimer.CountDownTimerUIView
+import com.alphastack.democoroutine.ui.countdownTimer.CountDownTimerUIViewImpl
 import com.alphastack.democoroutine.ui.home.HomeUIView
 import com.alphastack.democoroutine.ui.home.HomeUIViewImpl
 import javax.inject.Inject
@@ -18,6 +20,10 @@ class UIViewFactory @Inject constructor(
 
     fun getAsyncAwaitUIView(parent: ViewGroup?): AsyncAwaitUIView {
         return AsyncAwaitUIViewImpl(layoutInflater, parent)
+    }
+
+    fun getCountDownTimerUIView(parent: ViewGroup?): CountDownTimerUIView {
+        return CountDownTimerUIViewImpl(layoutInflater, parent)
     }
 
 }
