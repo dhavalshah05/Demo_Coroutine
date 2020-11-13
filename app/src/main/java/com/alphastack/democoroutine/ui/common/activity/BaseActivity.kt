@@ -48,6 +48,10 @@ abstract class BaseActivity : AppCompatActivity() {
         navigator.navigateBack()
     }
 
+    fun goBack() {
+        super.onBackPressed()
+    }
+
     abstract fun injectActivity(presentationComponent: PresentationComponent)
 
     @IdRes

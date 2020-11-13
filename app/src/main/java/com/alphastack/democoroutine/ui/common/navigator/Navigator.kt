@@ -12,7 +12,7 @@ class Navigator(
 
     fun navigateBack() {
         if (fragNavController.isRootFragment) {
-            activity.onBackPressed()
+            activity.goBack()
         } else {
             fragNavController.popFragment()
         }
