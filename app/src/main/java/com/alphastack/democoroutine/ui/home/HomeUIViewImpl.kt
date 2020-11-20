@@ -27,6 +27,9 @@ class HomeUIViewImpl(
         getRootView().buttonCountDownTimer.setOnClickListener {
             getListeners().forEach { it.onCountdownTimerClicked() }
         }
+        getRootView().buttonLogin.setOnClickListener {
+            getListeners().forEach { it.onLoginClicked() }
+        }
     }
 
 }

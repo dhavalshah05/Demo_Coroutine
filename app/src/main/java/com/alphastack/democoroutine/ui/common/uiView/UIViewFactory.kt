@@ -8,6 +8,8 @@ import com.alphastack.democoroutine.ui.countdownTimer.CountDownTimerUIView
 import com.alphastack.democoroutine.ui.countdownTimer.CountDownTimerUIViewImpl
 import com.alphastack.democoroutine.ui.home.HomeUIView
 import com.alphastack.democoroutine.ui.home.HomeUIViewImpl
+import com.alphastack.democoroutine.ui.login.LoginUIView
+import com.alphastack.democoroutine.ui.login.LoginUIViewImpl
 import javax.inject.Inject
 
 class UIViewFactory @Inject constructor(
@@ -24,6 +26,10 @@ class UIViewFactory @Inject constructor(
 
     fun getCountDownTimerUIView(parent: ViewGroup?): CountDownTimerUIView {
         return CountDownTimerUIViewImpl(layoutInflater, parent)
+    }
+
+    fun getLoginUIView(parent: ViewGroup?): LoginUIView {
+        return LoginUIViewImpl(layoutInflater, parent)
     }
 
 }

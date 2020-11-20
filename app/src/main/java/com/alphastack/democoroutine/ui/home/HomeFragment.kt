@@ -41,4 +41,8 @@ class HomeFragment : BaseFragment(), HomeUIView.Listener {
         navigator.navigateToCountdownTimerScreen()
     }
 
+    override fun onLoginClicked() {
+        navigator.navigateToLoginScreen()
+    }
+
 }

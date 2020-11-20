@@ -4,6 +4,7 @@ import com.alphastack.democoroutine.ui.asyncAwait.AsyncAwaitFragment
 import com.alphastack.democoroutine.ui.countdownTimer.CountDownTimerFragment
 import com.alphastack.democoroutine.ui.home.HomeFragment
 import com.alphastack.democoroutine.ui.home.MainActivity
+import com.alphastack.democoroutine.ui.login.LoginFragment
 import dagger.Subcomponent
 
 @PresentationScope
@@ -16,4 +17,5 @@ interface PresentationComponent {
     fun inject(fragment: HomeFragment)
     fun inject(fragment: AsyncAwaitFragment)
     fun inject(fragment: CountDownTimerFragment)
+    fun inject(loginFragment: LoginFragment)
 }
