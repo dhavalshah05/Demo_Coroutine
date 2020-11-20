@@ -13,7 +13,7 @@ class CountDownTimerFragment : BaseFragment(), CountDownTimerUIView.Listener {
 
     private lateinit var uiView: CountDownTimerUIView
 
-    private var timerJob: Job? = null
+    private val scope = CoroutineScope(Dispatchers.Main)
 
     override fun injectFragment(presentationComponent: PresentationComponent) {
         presentationComponent.inject(this)
@@ -49,7 +49,7 @@ class CountDownTimerFragment : BaseFragment(), CountDownTimerUIView.Listener {
     }
 
     private fun stopTimer() {
-        timerJob?.cancel()
+        scope.coroutineContext.cancelChildren()
         uiView.clearTime()
         uiView.enableStartTimerButton()
     }
@@ -58,26 +58,25 @@ class CountDownTimerFragment : BaseFragment(), CountDownTimerUIView.Listener {
         val totalSeconds = 10
         var currentSecond = 0
 
-        timerJob = GlobalScope.launch {
+        scope.launch {
             while (totalSeconds >= currentSecond) {
-                withContext(Dispatchers.Main) {
-                    val time = totalSeconds - currentSecond
-                    Timber.d("Countdown Time: $time")
-                    uiView.bindTime(time.toString())
-                }
+                val time = totalSeconds - currentSecond
+                Timber.d("Countdown Time: $time")
+                uiView.bindTime(time.toString())
+
                 if (totalSeconds != currentSecond) {
-                    delay(1000)
+                    withContext(Dispatchers.Default) {
+                        delay(1000)
+                    }
                     currentSecond += 1
                 } else {
                     break
                 }
             }
-            withContext(Dispatchers.Main) {
-                Timber.d("Timer Completed")
-                uiView.bindTime("Done!")
-                uiView.enableStartTimerButton()
-            }
 
+            Timber.d("Timer Completed")
+            uiView.bindTime("Done!")
+            uiView.enableStartTimerButton()
         }
     }
 
